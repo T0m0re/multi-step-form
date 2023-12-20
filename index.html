@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script defer src="main.js"></script>
+
+    <title>Frontend Mentor | Multi-step form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Destop -->
+    <div class="main-flex">
+      <div class="main-container grid">
+        <!-- Sidebar start -->
+        <div class="sidebar">
+          <div class="sidebar-container | top-navigation">
+            <div class="step grid" data-target="page1">
+              <div class="indic sidebar-active">1</div>
+              <h4>Step 1</h4>
+              <h3>YOUR INFO</h3>
+            </div>
+            <div class="step grid" data-target="page2">
+              <div class="indic">2</div>
+              <h4>Step 2</h4>
+              <h3>SELECT PLAN</h3>
+            </div>
+            <div class="step grid" data-target="page3">
+              <div class="indic">3</div>
+              <h4>Step 3</h4>
+              <h3>ADD-ONS</h3>
+            </div>
+            <div class="step grid" data-target="page4">
+              <div class="indic">4</div>
+              <h4>Step 4</h4>
+              <h3>SUMMARY</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar end -->
+
+        <!-- Step 1 start -->
+
+        <div id="page1" class="page | step-1 right-side" data-page="1">
+          <div class="head">
+            <h1>Personal info</h1>
+            <p>Please provide your name, email address, and phone number.</p>
+          </div>
+          <form onsubmit="mailValidation(event)">
+            <label for="Name">Name</label>
+            <span id="nameError" class="error"></span>
+            <input
+              type="text"
+              name="Name"
+              id="Name"
+              placeholder="e.g. Stephen King"
+            />
+
+            <label for="email">Email Address</label>
+            <span id="emailError" class="error"></span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="e.gstephenking@lorem.com"
+            />
+            <label for="phone">Phone Number</label>
+            <span id="numberError" class="error"></span>
+            <input
+              type="number"
+              name="phone"
+              id="phone"
+              placeholder="e.g +1 234 567 890"
+            />
+          </form>
+        </div>
+
+        <!-- Step 1 end -->
+
+        <!-- Step 2 start -->
+        <div
+          id="page2"
+          class="page | step-2 right-side display-none"
+          data-page="2"
+        >
+          <div class="head">
+            <h1>Select your plan</h1>
+            <p>You have the option of monthly or yearly billing.</p>
+          </div>
+
+          <span id="plan-error" class="plan-error"></span>
+          <div class="cards flex">
+            <div class="card-body">
+              <img src="assets/images/icon-arcade.svg" alt="arcade-icon" />
+              <div class="card-text">
+                <h4>Arcade</h4>
+                <p class="monthly-price">$9/mo</p>
+                <p class="display-none | yearly-price">$90/yr</p>
+                <p class="display-none | yearly-info">2 months free</p>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <img src="assets/images/icon-advanced.svg" alt="advanced icon" />
+              <div class="card-text">
+                <h4>Advanced</h4>
+                <p class="monthly-price">$12/mo</p>
+                <p class="display-none | yearly-price">$120/yr</p>
+                <p class="display-none | yearly-info">2 months free</p>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <img src="assets/images/icon-pro.svg" alt="pro icon" />
+              <div class="card-text">
+                <h4>Pro</h4>
+                <p class="monthly-price">$15/mo</p>
+                <p class="display-none | yearly-price">$150/yr</p>
+                <p class="display-none | yearly-info">2 months free</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="price-toggle flex">
+            <h4 class="monthly">Monthly</h4>
+            <label class="switch">
+              <input type="checkbox" class="plan-toggle" />
+              <span class="slider round"></span>
+            </label>
+            <h4 class="yearly fade">Yearly</h4>
+          </div>
+        </div>
+
+        <!-- Step 2 end -->
+
+        <!-- Step 3 start -->
+
+        <div
+          id="page3"
+          class="page | step-3 right-side display-none"
+          data-page="3"
+        >
+          <div class="head">
+            <h1>Pick add-ons</h1>
+            <p>Add-ons help enhance your gaming experience.</p>
+          </div>
+
+          <span id="adds-error" class="adds-error"></span>
+          <div class="options-container flex">
+            <input type="checkbox" name="Online" id="add-on" />
+            <div class="form-text">
+              <h4>Online service</h4>
+              <p>Access to multiplayer games</p>
+            </div>
+            <p class="add-ons-price | monthly-add-ons-price">+$1/mo</p>
+            <p class="add-ons-price | yearly-add-ons-price display-none">
+              +$10/yr
+            </p>
+          </div>
+
+          <div class="options-container flex">
+            <input type="checkbox" name="Online" id="add-on" />
+            <div class="form-text">
+              <h4>Larger storage</h4>
+              <p>Extra 1TB of cloud save</p>
+            </div>
+            <p class="add-ons-price | monthly-add-ons-price">+$2/mo</p>
+            <p class="add-ons-price | yearly-add-ons-price display-none">
+              +$20/yr
+            </p>
+          </div>
+
+          <div class="options-container flex">
+            <input type="checkbox" name="Online" id="add-on" />
+            <div class="form-text">
+              <h4>Customizable Profile</h4>
+              <p>Custom theme on your profile</p>
+            </div>
+            <p class="add-ons-price | monthly-add-ons-price">+$2/mo</p>
+            <p class="add-ons-price | yearly-add-ons-price display-none">
+              +$20/yr
+            </p>
+          </div>
+        </div>
+        <!-- Step 3 end -->
+
+        <!-- Step 4 start -->
+        <div
+          id="page4"
+          class="page | step-4 right-side display-none"
+          data-page="4"
+        >
+          <div class="head">
+            <h1>Finishing up</h1>
+            <p>
+              Finishing up Double-check everything looks OK before confirming.
+            </p>
+          </div>
+          <span id="finish-error" class="plan-error"></span>
+          <!-- Dynamically add subscription and add-on selections here -->
+          <div class="total-package">
+            <div class="plan">
+              <!-- <div class="choose-plan flex">
+                <div>
+                  <h4><span id="planName"></span> Arcade (monthly)</h4>
+                  <a href="#">change</a>
+                </div>
+                <p class="price display-none">$9/mo</p>
+                <p class="price">$90/mo</p>
+              </div> -->
+            </div>
+
+            <div class="adds">
+              <!-- <div class="flex add-ons">
+                <p>Online service</p>
+                <p class="price display-none">$1/mo</p>
+                <p class="price">$10/mo</p>
+              </div> -->
+            </div>
+          </div>
+          <div class="flex total-price">
+            <!-- <p>Total (per month)</p>
+            <p class="price display-none">+$12/mo</p>
+            <p class="price">+$120/yr</p> -->
+          </div>
+        </div>
+        <!-- Step 4 end -->
+
+        <!-- Step 5 start -->
+        <div id="page5" class="submit page right-side flex display-none">
+          <div class="submit-container">
+            <img src="assets/images/icon-thank-you.svg" alt="Thank You" />
+            <h1>Thank You</h1>
+            <p>
+              Thanks for confirming your subscription! We hope you have fun
+              using our platform. If you ever need support, please feel free to
+              email us at support@loremgaming.com.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 5 end -->
+        <div class="button-container">
+          <button class="btn btn-white | btn-left">Go back</button>
+          <button class="btn btn-primary | btn-right">Next Step</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
